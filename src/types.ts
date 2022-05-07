@@ -1,4 +1,4 @@
-import { DocumentNode } from "graphql";
+import { DocumentNode } from 'graphql';
 
 export interface MockedProviderProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -20,6 +20,6 @@ export interface MockedResponse {
     variables: JSON;
     context?: JSON;
   };
-  result?: JSON;
+  result?: JSON | (() => JSON);
   error?: Error;
 }

@@ -92,7 +92,13 @@ export const ApolloClientPanel: React.FC = () => {
           <div key="result" id="result" title="Result">
             {mockedResponse.result ? (
               <SyntaxHighlighter language="json" copyable bordered padded>
-                {JSON.stringify(mockedResponse.result, null, 2)}
+                {JSON.stringify(
+                  typeof mockedResponse.result === 'function'
+                    ? mockedResponse.result()
+                    : mockedResponse.result,
+                  null,
+                  2
+                )}
               </SyntaxHighlighter>
             ) : (
               <Placeholder>No result in mockedResponse</Placeholder>
